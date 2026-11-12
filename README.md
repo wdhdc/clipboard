@@ -16,12 +16,23 @@
 
 ## 怎么装
 
+### Chrome
+
 1. 打开 Chrome，地址栏输入 `chrome://extensions/`
 2. 右上角打开「开发者模式」
 3. 点「加载已解压的扩展程序」，选这个文件夹
 4. 把「摘板」固定到工具栏，打开任意网页就能用
 
-Chrome 自己的页面（`chrome://` 开头的、应用商店这些）不允许插件注入脚本，所以这些页面上不会出现面板，是浏览器的限制，普通网页都正常。
+### Microsoft Edge（Windows）
+
+1. 打开 Edge，地址栏输入 `edge://extensions/`
+2. 打开左下角的「开发人员模式」
+3. 点「加载解压缩的扩展」，选择包含 `manifest.json` 的项目根目录
+4. 把「摘板」固定到工具栏，打开任意网页就能用
+
+Edge 支持 Chrome 扩展格式，因此直接加载本项目即可，不需要额外的 Edge 专用清单或目录。请保持 `manifest.json`、`background.js`、`content.js`、`popup/` 和 `icons/` 的相对位置不变。
+
+浏览器内置页面（例如 `chrome://`、`edge://` 开头的页面）和扩展商店页面不允许扩展注入脚本，因此这些页面上不会出现面板；普通网页可以正常使用。
 
 ## 什么时候用得上
 
@@ -43,4 +54,4 @@ clipboard-extension/
 └── icons/
 ```
 
-纯前端，没有后端，数据放在 `chrome.storage.local` 里。
+纯前端，没有后端，数据放在 Chromium 浏览器的本地扩展存储中。
